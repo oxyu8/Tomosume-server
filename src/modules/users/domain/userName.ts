@@ -6,4 +6,8 @@ export class UserName {
     }
     return false;
   }
+
+  toString(): string {
+    return this.userName;
+  }
 }
