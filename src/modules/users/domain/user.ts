@@ -16,14 +16,4 @@ class User {
   get id(): any {
     return this.id;
   }
-
-  public sconsole(): any {
-    let t = new User("test", "tel", 1, 1, 1);
-    console.log(typeof t);
-    console.log(new User("test", "taaaaaaaaaal", 1, 1, 1));
-    console.log(t);
-  }
 }
-
-const t = new User();
-console.log(t.sconsole());
