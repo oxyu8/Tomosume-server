@@ -1,13 +1,12 @@
 export class UserName {
-  constructor(private userName: string) {}
-  equals(other: UserName): boolean {
-    if (this.userName === other.userName) {
-      return true;
-    }
-    return false;
+  private constructor(private userName: string) {}
+
+  get value(): string {
+    return this.userName;
   }
 
-  toString(): string {
-    return this.userName;
+  public static create(userName: string): UserName {
+    // TODO: validation
+    return new UserName(userName);
   }
 }

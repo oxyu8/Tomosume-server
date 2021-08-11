@@ -1,17 +1,11 @@
-import { UniqueEntityID } from "../../../shared/UniqueEntityID";
-// import { Result } from "../../../shared/core/Result";
-import { Entity } from "../../../shared/Entity";
+export class UserId {
+  private constructor(private userId: string) {}
 
-export class UserId extends Entity<any> {
-  get id(): UniqueEntityID {
-    return this._id;
+  get value(): string {
+    return this.userId;
   }
 
-  private constructor(id?: UniqueEntityID) {
-    super(null, id);
+  public static create(id: string) {
+    return new UserId(id);
   }
-
-  // public static create(id?: UniqueEntityID): Result<UserId> {
-  //   return Result.ok<UserId>(new UserId(id));
-  // }
 }
