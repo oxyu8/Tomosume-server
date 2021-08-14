@@ -1,2 +1,2 @@
-# Tomosume-server
+# Server
 DDD
