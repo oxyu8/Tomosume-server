@@ -1,2 +1,2 @@
 # Server
-DDD
+Clean Architecture
