@@ -1,19 +1,21 @@
-class User {
-  constructor(
-    private userId?: string,
-    private userName?: string,
-    private followerCount?: number,
-    private followeeCount?: number,
-    private reviewCount?: number
-  ) {
-    this.userId = userId;
-    this.userName = userName;
-    this.followeeCount = followeeCount;
-    this.followerCount = followerCount;
-    this.reviewCount = reviewCount;
-  }
+export class User {
+  private constructor(
+    public userId: string,
+    public userName: string,
+    public userEmail: string
+  ) {}
 
-  get id(): any {
-    return this.id;
+  public static create(userId: string, userName: string, userEmail: string) {
+    // if (userId === null || userId === undefined) {
+    //   return "error";
+    // }
+    // if (userName === null || userName === undefined) {
+    //   return "error";
+    // }
+    // if (userEmail === null || userEmail === undefined) {
+    //   return "error";
+    // }
+    const user = new User(userId, userName, userEmail);
+    return user;
   }
 }
