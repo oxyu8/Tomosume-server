@@ -1,6 +1,6 @@
 import { CreateUserUseCase } from "../../application/usecase/user/CreateUserUseCase";
 import { User } from "../../modules/users/domain/user";
-import { UserRepository } from "../database/UserRepository";
+import { UserRepository } from "../database/MySQL/UserRepository";
 
 export class UserController {
   private userRepository: UserRepository;
