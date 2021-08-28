@@ -1,6 +1,7 @@
 import express from "express";
 import { MySQLConnection } from "./interface/database/MySQL/MySQLConnection";
 import dotenv from "dotenv";
+import { router } from "./infrastructure/router";
 const res = dotenv.config();
 console.log(res.parsed);
 
@@ -19,13 +20,16 @@ app.use(
   }
 );
 
+// Route設定
+app.use("/api", router);
+
 app.listen(3000, () => {
   console.log("Start on port 3000.");
 });
 
-const connection = new MySQLConnection();
-connection._connect();
-connection._query();
+// const connection = new MySQLConnection();
+// connection._connect();
+// connection._query();
 
 //
 // type User = {
