@@ -1,4 +1,4 @@
-import { User } from "../../modules/users/domain/user";
+import { User } from "../../entities/user";
 
 export class UserSerializer {
   public user(data: User) {

@@ -1,4 +1,4 @@
-import { User } from "../../modules/users/domain/user";
+import { User } from "../../entities/user";
 
 export interface IUserSerializer {
   // TODO: 型

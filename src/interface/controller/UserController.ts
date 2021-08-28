@@ -1,6 +1,6 @@
 import { CreateUserUseCase } from "../../application/usecase/user/CreateUserUseCase";
 import { GetAllUsersUseCase } from "../../application/usecase/user/GetAllUsersUseCase";
-import { User } from "../../modules/users/domain/user";
+import { User } from "../../entities/user";
 import { UserRepositoryImpl } from "../database/Memory/UserRepositoryImpl";
 import { CreateUserRequest } from "../request/CreateUserRequest";
 import { UserSerializer } from "../serializer/UserSerializer";
@@ -20,7 +20,6 @@ export class UserController {
   }
   public async createUser(req: any) {
     const userParams = new CreateUserRequest(req.query);
-    console.log("params", userParams);
     const useCase = new CreateUserUseCase(this.userRepository);
     const user = new User("c", userParams.userName, userParams.userEmail);
     const result = await useCase.createUser(user);

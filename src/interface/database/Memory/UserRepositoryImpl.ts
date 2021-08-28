@@ -1,5 +1,5 @@
 import { IUserRepository } from "../../../application/interface/IUserRepository";
-import { User } from "../../../modules/users/domain/user";
+import { User } from "../../../entities/user";
 import { DB } from "./MemoryDB";
 
 // ref to ddd
