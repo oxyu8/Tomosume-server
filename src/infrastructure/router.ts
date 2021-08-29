@@ -1,6 +1,5 @@
 import express from "express";
 import { UserController } from "../interface/controller/UserController";
-import { CreateUserRequest } from "../interface/request/CreateUserRequest";
 
 export const router = express.Router();
 
@@ -12,10 +11,10 @@ router.get("/users", async (_, res: any): Promise<void> => {
   res.send(result);
 });
 router.post(
-  "/users",
+  "/createUser",
   // TODO: 型
-  async (req: CreateUserRequest, res: any): Promise<void> => {
-    const result = await userController.createUser(req);
+  async (req: any, res: any): Promise<void> => {
+    const result = await userController.createUser(req.query);
     res.send(result);
   }
 );

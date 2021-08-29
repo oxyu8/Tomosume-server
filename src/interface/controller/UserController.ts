@@ -19,10 +19,14 @@ export class UserController {
     return this.userSerializer.users(result);
   }
   public async createUser(req: any) {
-    const userParams = new CreateUserRequest(req.query);
-    const useCase = new CreateUserUseCase(this.userRepository);
-    const user = new User("c", userParams.userName, userParams.userEmail);
-    const result = await useCase.createUser(user);
-    return this.userSerializer.user(result);
+    try {
+      const userParams = new CreateUserRequest(req);
+      const useCase = new CreateUserUseCase(this.userRepository);
+      const user = new User("c", userParams.userName, userParams.userEmail);
+      const result = await useCase.createUser(user);
+      return this.userSerializer.user(result);
+    } catch (error) {
+      return this.userSerializer.error(error);
+    }
   }
 }

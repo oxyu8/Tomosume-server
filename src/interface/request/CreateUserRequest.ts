@@ -16,26 +16,37 @@ export class CreateUserRequest {
   }
 
   public constructor(params: Params) {
-    // this.valid(params);
+    console.log("p", params);
+    this.valid(params);
     this._userName = params.userName;
     this._userEmail = params.userEmail;
   }
 
-  // TODO: valid関数を実装
   private valid(params: Params): void {
-    if (params.userName.length < 4) {
+    /**
+     *@の前は英数字または，「.!#$%&'*+/=?^_`{|}~-」の記号．
+     *@の後は英数字または「-」．
+     *「.」で終わることはできない．
+     */
+    const checkEmail = (email: string) => {
+      const emailPattern = new RegExp(
+        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+      );
+      return emailPattern.test(email);
+    };
+    if (params.userName.length === 0) {
       throw new Error(
         JSON.stringify({
           code: "error",
-          message: "4文字以上の名前",
+          message: "ユーザ名は必須です",
         })
       );
     }
-    if (params.userEmail.length < 12) {
+    if (!checkEmail(params.userEmail)) {
       throw new Error(
         JSON.stringify({
           code: "error",
-          message: "12文字以上の名前",
+          message: "メールの形式が正しくありません",
         })
       );
     }

@@ -1,6 +1,7 @@
 import { User } from "../../entities/user";
+import { BaseSerializer } from "./BaseSerializer";
 
-export class UserSerializer {
+export class UserSerializer extends BaseSerializer {
   public user(data: User) {
     if (!data) {
       return {
