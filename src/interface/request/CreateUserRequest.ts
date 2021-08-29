@@ -16,7 +16,6 @@ export class CreateUserRequest {
   }
 
   public constructor(params: Params) {
-    console.log("p", params);
     this.valid(params);
     this._userName = params.userName;
     this._userEmail = params.userEmail;

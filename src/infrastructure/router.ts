@@ -21,7 +21,13 @@ router.post(
   }
 );
 
+// review
 router.get("/reviews", async (_, res: any): Promise<void> => {
   const result = await reviewController.getAllReviews();
+  res.send(result);
+});
+
+router.post("/createReview", async (req: any, res: any): Promise<void> => {
+  const result = await reviewController.createReview(req.query);
   res.send(result);
 });
